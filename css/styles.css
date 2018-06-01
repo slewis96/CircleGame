@@ -1,0 +1,25 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  padding: 2%;
+  margin: 0;
+  width: 96vw;
+  height: 94vh;
+}
+svg{
+  position: absolute;
+  background: transparent;
+  width: 96vw;
+  height: 94vh;
+}
+circle{
+  position: absolute;
+}
+.background{
+  display: inline;
+  background-color: #c20000;
+  position: absolute;
+  width: 96vw;
+  height: 94vh;
+}
