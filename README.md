@@ -9,13 +9,20 @@ More successful clicks means a smaller target and a shorter time to click
 ## Todo:
 - [x] setInterval dot change (setInterval bottom of move func, clearInterval at top) if function with interval runs gameOver
 - [x] After x amount of clicks shrink circle, set interval time smaller, change score multiplyer
+- [x] fadeOut in sync with timeout
+- [ ] **MENU**
+    Toggle gameOver on: timeout, miss
+    Toggle fadeout
+    Sliders for initial interval time and width & height
+    Difficulty buttons set sliders and submit at pre defined points
+    Modul with info on effect of menu items
 - [ ] Give instructions through modal then Ajax to refresh frame on gameover
 - [ ] Disable Misclick
 - [ ] Swap functions to not include setInterval on toggle button for timed
 - [ ] Toggle button for "mania" untimed, unlimited amount of circles, test accuracy (limited amount of circles)
 ### Todo extra:
 - [ ] Sliders for initial interval time and size
-- [ ] Input color for circle and background
+- [ ] Pre defined themes on drop down in menu
 
 ### Notes:
 Modal instructions & settings

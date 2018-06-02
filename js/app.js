@@ -16,24 +16,44 @@ var difficulty = {
   time: 2000,
   scrMult: 1
 };
+var diffToggle = true;
+var fadeToggle = true;
 
 function dotClick(){
   clearInterval(timer);
   var maxwidth = $('.background').width()-200;
   var maxheight = $('.background').height()-200;
-  $('#circle').css("left", (Math.floor(Math.random() * maxwidth)));
-  $('#circle').css("top", (Math.floor(Math.random() * maxheight)));
-  $('#circle').css("width", difficulty.size);
-  $('#circle').css("height", difficulty.size);
+  var newPosX = (Math.floor(Math.random() * maxwidth));
+  var newPosY = (Math.floor(Math.random() * maxheight));
+  $('#circle').css({
+    transition : "opacity 0s",
+    opacity    : '1',
+    left       : newPosX,
+    top        : newPosY,
+    width      : difficulty.size,
+    height     : difficulty.size,
+  });
+  fadeOut();
   clicks++;
   setDifficulty();
   setScore(difficulty.scrMult);
   timer = setInterval(gameOver, difficulty.time);
 }
+function fadeOut(){
+  if(fadeToggle){
+    var transtime = 'opacity '+(difficulty.time/600)+'s';
+    $('#circle').css({
+      transition : transtime,
+      opacity    : 0
+    });
+  }
+}
 function setDifficulty(){
-    difficulty.size = 100-(clicks/2);
-    difficulty.time = 2000-(clicks*12);
-    difficulty.scrMult = Math.floor(clicks/2);
+    if(diffToggle){
+      difficulty.size = 100-(clicks/2);
+      difficulty.time = 2000-(clicks*10);
+      difficulty.scrMult = Math.floor(clicks/2);
+    }
 }
 function setScore(x){
   score += x;
