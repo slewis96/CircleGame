@@ -11,11 +11,25 @@
 </head>
 <body>
   <div id="menu">
-    <div id="score">Score:</div>
+    <div id="score">Score: , Clicks:</div>
     <div id="settings"><img src="imgs/settingsicon.png" alt="settingsmenu" width="35px" height="35px"></div>
   </div>
   <div class="background">
     <div id="circle" class="circle"></div>
+  </div>
+  <div id="settingsModal" class="modal">
+    <div class="innerModal">
+      <div class="slidecontainer">
+        <button type="button" id="easy" class="diffBtns button" name="button">Easy</button>
+        <button type="button" id="medium" class="diffBtns button active" name="button">Medium</button>
+        <button type="button" id="hard" class="diffBtns button" name="button">Hard</button>
+        <p>Initial circle size:</p>
+        <input type="range" min="10" max="150" value="100" class="slider" id="sizeSlider"><span id='sizeValue'></span><br><br>
+        <p>Initial timeout:</p>
+        <input type="range" min="200" max="3000" value="2000" class="slider" id="timerSlider"><span id='timerValue'></span><br>
+        <button type="button" id="confirm" class="button" name="button">Confirm</button>
+      </div>
+    </div>
   </div>
 </body>
 </html>
