@@ -3,6 +3,7 @@ Click on the circle as soon as it appears miss then **gameover** don't click in 
 More successful clicks means a smaller target and a shorter time to click
 
 ## Issues:
+- [ ] To small on mobile
 - [x] Circle goes off screen
 - [x] Misclick not working
 
