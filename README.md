@@ -25,7 +25,7 @@ More successful clicks means a smaller target and a shorter time to click
 - [ ] Pre defined themes on drop down in menu
 
 ### Notes:
-Modal instructions & settings
-Main color hex: #c20000
-Font: <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+Modal instructions & settings <br>
+Main color hex: #c20000 <br>
+Font: ```<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">``` <br>
 https://fonts.google.com/?selection.family=PT+Sans
