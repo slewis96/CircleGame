@@ -23,6 +23,7 @@ More successful clicks means a smaller target and a shorter time to click
 ### Todo extra:
 - [ ] Sliders for initial interval time and size
 - [ ] Pre defined themes on drop down in menu
+- [ ] New game mode multiple circles
 
 ### Notes:
 Modal instructions & settings <br>

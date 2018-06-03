@@ -1,4 +1,6 @@
+
 //INITIALISE
+
 $(document).ready(function(){
   //game
   $('#circle').click(function(){
@@ -10,8 +12,8 @@ $(document).ready(function(){
     gameOver();
   })
 
-  //menu
-    //onclicks
+//Menu
+  //Settings modal
   $('#settings').click(function(){
     openMenu();
   });
@@ -29,35 +31,78 @@ $(document).ready(function(){
       setTimeout(setDifficulty(sizeSlider.value, timerSlider.value), 2);
     });
   });
-  //set slider val
+  //Toggle game attributes
+    //set timeout and fade on/off
+  $('#timeBtn').click(function(){
+    $(this).toggleClass("active");
+    if($('#timeBtn').hasClass("active")){
+      gameOverToggle = gameOver;
+    }
+    else{
+      gameOverToggle = " ";
+    }
+    fadeToggle = !fadeToggle;
+  });
+    //set background click on/off
+  $('#missBtn').click(function(){
+    $(this).toggleClass("active");
+    if($('#missBtn').hasClass("active")){
+      $('.background').click(function(){
+        event.stopPropagation();
+        gameOver();
+      });
+    }
+    else{
+      $('.background').unbind();
+    }
+  });
+    //set sizeToggle
+  $('#sizeBtn').click(function(){
+    $(this).toggleClass("active");
+    if($('#sizeBtn').hasClass("active")){
+      sizeToggle = false;
+    }
+    else{
+      sizeToggle = true;
+    }
+  });
+
+  //Sliders
   var sizeSlider = document.getElementById('sizeSlider');
   var timerSlider = document.getElementById('timerSlider');
   $('#sizeValue').html(sizeSlider.value);
   $('#timerValue').html(timerSlider.value);
+    // Show value to the side of sliders
   sizeSlider.oninput = function() {
     $('#sizeValue').html(sizeSlider.value);
   }
   timerSlider.oninput = function() {
     $('#timerValue').html(timerSlider.value);
   }
+    //Set difficulty based on slider values
   $('#confirm').click(function(){
     setDifficulty(sizeSlider.value, timerSlider.value);
   });
 
 });
+
 //VARIABLES
-var clicks = 0;
-var score = 0;
-var timer;
+
+var clicks = 0; // incremented every circle click
+var score = 0; // 2/clicks added each circle click
+var timer; // time available to click circle before gameOver
 var difficulty = {
   size: 100,
   time: 2000,
   scrMult: 1
-};
-var diffToggle = true;
-var fadeToggle = true;
+}; // defined in setDifficulty via sliders
+var gameOverToggle = gameOver; // set to "" when timer toggled off
+var fadeToggle = true; // set to false when timer toggled off
+var sizeToggle = true; // set to false when size toggled off
 
 //FUNCTIONS
+
+  // Repositions circle randomly on click
 function dotClick(){
   clearInterval(timer);
   var maxwidth = $('.background').width()-200;
@@ -78,6 +123,8 @@ function dotClick(){
   setScore(difficulty.scrMult);
   timer = setInterval(gameOver, difficulty.time);
 }
+
+  // Sets circle to fade out in timer/600 (initally 3.33 seconds)
 function fadeOut(){
   if(fadeToggle){
     var transtime = 'opacity '+(difficulty.time/600)+'s';
@@ -87,28 +134,44 @@ function fadeOut(){
     });
   }
 }
+
+  // Ran on every click to reduce size of circle and time to click
+  // dependant on sizeToggle and timerToggle
 function increaseDifficulty(){
-    if(diffToggle){
-      difficulty.size = difficulty.size-0.5;
-      difficulty.time = difficulty.time-15;
-    }
-    difficulty.scrMult = Math.floor(clicks/2);
+  if(sizeToggle){
+    difficulty.size = difficulty.size-0.5;
+  }
+  difficulty.time = difficulty.time-15;
+  difficulty.scrMult = Math.floor(clicks/2);
 }
+
+  // Ran on confirm button to set slider values
+  // size and time : values from slider
 function setDifficulty(size, time){
   difficulty.size = size;
   difficulty.time = time;
 }
+
+  // Set onscreen score and score var
+  // x : difficulty.scrMult
 function setScore(x){
   score += x;
   $('#score').html("Score: " + score +",  Clicks: " + clicks);
 }
+
+  //Triggered on timeout or background click
 function gameOver(){
   alert("Game Over!");
   location.reload();
 }
+
+  //Open settings modal on setting icon click
 function openMenu(){
   $('#settingsModal').css('display', 'block');
 }
+
+  // Sets sliders to predefined setDifficulty
+  // diff : id of button pressed (easy, medium, hard)
 function setSliders(diff){
   var sizeSlider = document.getElementById('sizeSlider');
   var timerSlider = document.getElementById('timerSlider');
