@@ -6,6 +6,7 @@
   <link rel="icon" href="imgs/icon.ico">
   <!--Styles-->
   <link rel="stylesheet" href="css/styles.css">
+  <link id="themecss" rel="stylesheet" href="">
   <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
   <!--Script-->
   <script src="js/jquery-3.3.1.js"></script>
@@ -14,7 +15,18 @@
 <body>
   <!--Menu-->
   <div id="menu">
-    <div id="score">Score: , Clicks:</div>
+    <div id="score">Score: &emsp; Clicks:</div>
+    <!--Themes-->
+    <div class="dropdownwrapper">
+      <button type="button" id="themeBtn" class="button" name="button">Themes&emsp;<i class="arrow down"></i>
+      </button>
+      <div class="dropdown-content">
+        <p id="defaulttheme">Default</p>
+        <p id="bluetheme">Blue</p>
+        <p id="greentheme">Green</p>
+        <p id="purpletheme">Purple</p>
+      </div>
+    </div>
     <div id="settings"><img src="imgs/settingsicon.png" alt="settingsmenu" width="35px" height="35px"></div>
   </div>
   <!--Game-->

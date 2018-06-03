@@ -16,7 +16,8 @@ body{
 #menu{
   display:flex;
 }
-#settings{
+#settings:hover{
+  cursor: pointer;
 }
 #score{
   line-height: 30px;
@@ -31,6 +32,9 @@ body{
   position: absolute;
   width: 96vw;
   height: 92vh;
+}
+.background{
+  cursor: crosshair;
 }
 .circle{
   margin: 2%;
@@ -62,6 +66,65 @@ body{
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+}
+/*Theme*/
+.dropdownwrapper{
+  color: white;
+  font-size: 11px;
+  margin-right: 2%;
+}
+#themeBtn{
+  text-align: center;
+  font-size: 11px;
+  width: 100px;
+  margin-left: 0;
+  margin-bottom: 0;
+  padding: 0;
+  height: 30px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #d3d3d3;
+  text-align: center;
+  width: 100px;
+  z-index: 1;
+  line-height: 40px;
+}
+.dropdownwrapper:hover .dropdown-content {
+  display: block;
+  margin-bottom: 0;
+}
+#defaulttheme{
+  margin: 0;
+  border: 1px solid #363636;
+  background-color: #c20000;
+}
+#bluetheme{
+  margin: 0;
+  border: 1px solid #363636;
+  border-top: 0;
+  background-color: #0048c2;
+}
+#greentheme{
+  margin: 0;
+  border: 1px solid #363636;
+  border-top: 0;
+  background-color: #00c213;
+}
+#purpletheme{
+  margin: 0;
+  border: 1px solid #363636;
+  border-top: 0;
+  background-color: #76769E;
+}
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
   /*Slider*/
 .slider {

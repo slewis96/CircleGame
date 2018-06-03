@@ -2,8 +2,9 @@
 //INITIALISE
 
 $(document).ready(function(){
-  //game
-  $('#circle').click(function(){
+
+  //Game
+  $('#circle').on('click', function(){
     event.stopPropagation();
     dotClick();
   })
@@ -12,8 +13,21 @@ $(document).ready(function(){
     gameOver();
   })
 
-//Menu
-  //Settings modal
+  //Menu
+    //Themes
+  $('#defaulttheme').click(function(){
+    $('#themecss').attr('href','css/colorsA.css');
+  });
+  $('#bluetheme').click(function(){
+    $('#themecss').attr('href','css/colorsB.css');
+  });
+  $('#greentheme').click(function(){
+    $('#themecss').attr('href','css/colorsC.css');
+  });
+  $('#purpletheme').click(function(){
+    $('#themecss').attr('href','css/colorsD.css');
+  });
+    //Settings modal
   $('#settings').click(function(){
     openMenu();
   });
@@ -31,8 +45,8 @@ $(document).ready(function(){
       setTimeout(setDifficulty(sizeSlider.value, timerSlider.value), 2);
     });
   });
-  //Toggle game attributes
-    //set timeout and fade on/off
+    //Toggle game attributes
+      //set timeout and fade on/off
   $('#timeBtn').click(function(){
     $(this).toggleClass("active");
     if($('#timeBtn').hasClass("active")){
@@ -43,7 +57,7 @@ $(document).ready(function(){
     }
     fadeToggle = !fadeToggle;
   });
-    //set background click on/off
+      //set background click on/off
   $('#missBtn').click(function(){
     $(this).toggleClass("active");
     if($('#missBtn').hasClass("active")){
@@ -56,7 +70,7 @@ $(document).ready(function(){
       $('.background').unbind();
     }
   });
-    //set sizeToggle
+      //set sizeToggle
   $('#sizeBtn').click(function(){
     $(this).toggleClass("active");
     if($('#sizeBtn').hasClass("active")){
