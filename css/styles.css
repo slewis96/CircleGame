@@ -2,24 +2,37 @@
   box-sizing: border-box;
 }
 body{
-  padding: 2%;
+  font-family: 'PT Sans', sans-serif;
+  color: #3d3d3d;
+  padding-left: 2%;
+  padding-bottom: 2%;
   margin: 0;
   width: 96vw;
   height: 94vh;
 }
-svg{
-  position: absolute;
-  background: transparent;
-  width: 96vw;
-  height: 94vh;
+#menu{
+  display:flex;
 }
-circle{
+#settings{
+}
+#score{
+  line-height: 30px;
+  flex: 100%;
+}
+.circle{
+  margin: 2%;
+  width: 100px;
+  height: 100px;
   position: absolute;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  background: black;
 }
 .background{
   display: inline;
   background-color: #c20000;
   position: absolute;
   width: 96vw;
-  height: 94vh;
+  height: 92vh;
 }

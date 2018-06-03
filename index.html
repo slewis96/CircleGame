@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   <title>CircleGame</title>
+  <link rel="icon" href="imgs/icon.ico">
   <link rel="stylesheet" href="css/styles.css">
-    <script src="js/jquery-3.3.1.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+  <script src="js/jquery-3.3.1.js"></script>
   <script src="js/app.js" type="text/javascript"></script>
 </head>
 <body>
-  <div class="background" onclick="gameOver()"></div>
-  <svg id="gameFrame">
-  <circle id="circle" onclick="dotClick()" r="40" cx="50" cy="50" fill="black"></circle>
-  </svg>
+  <div id="menu">
+    <div id="score">Score:</div>
+    <div id="settings"><img src="imgs/settingsicon.png" alt="settingsmenu" width="35px" height="35px"></div>
+  </div>
+  <div class="background">
+    <div id="circle" class="circle"></div>
+  </div>
 </body>
 </html>
