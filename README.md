@@ -1,9 +1,15 @@
 # Circle Game
 Click on the circle as soon as it appears miss then **gameover** don't click in time then **gameover**
-More successful clicks means a smaller target and a shorter time to click
+More successful clicks means a smaller target, a shorter time to click but also an increased score
+
+~~Friday~~: ~~swap over to div and add fadeOut~~<br>
+~~Saturday~~: ~~add menu~~<br>
+~~Sunday~~: ~~add theme (BONUS: fixed mobile)~~<br>
+Monday-Tuesday: ~~Fix mobile~~, Ajax refresh on gameOver, add instructions<br>
+Tuesday-Thursday: Add new game mode, get presentation ready
 
 ## Issues:
-- [ ] To small on mobile
+- [x] To small on mobile
 - [x] Circle goes off screen
 - [x] Misclick not working
 
@@ -18,12 +24,9 @@ More successful clicks means a smaller target and a shorter time to click
     - [x] Toggle fadeout
     - [x] Sliders for initial interval time and width & height
     - [x] Difficulty buttons set sliders and submit at pre defined points
-    - [ ] Modul with info on effect of menu items??
+    - [ ] ~~Modul with info on effect of menu items??~~ do this in instructions
 - [ ] Toggle button for "mania" untimed, unlimited amount of circles, test accuracy (limited amount of circles)
 ### Todo extra:
-- [ ] Sliders for initial interval time and size
-- [ ] Pre defined themes on drop down in menu
-- [ ] New game mode multiple circles
 - [x] Pre defined themes on drop down in menu
 - [ ] New game mode multiple circles: <br>
     Disable sliders other than size slider and button  <br>
