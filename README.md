@@ -33,6 +33,9 @@ More successful clicks means a smaller target and a shorter time to click
     On each circle click: set gameover interval, clear on top. decrease interval for circle spawn display none then randomise pos
 
 ### Notes:
+![Image of phone notes](Notes/phonenotes.png)
+![Image of phone notes2](Notes/phonenotes2.png)<br>
+0dfbb9f... Added Daily plan to readme
 Modal instructions & settings <br>
 Main color hex: #c20000 <br>
 Font: ```<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">``` <br>
