@@ -17,15 +17,27 @@ $(document).ready(function(){
     //Themes
   $('#defaulttheme').click(function(){
     $('#themecss').attr('href','css/colorsA.css');
+    pokeToggle = false;
   });
   $('#bluetheme').click(function(){
     $('#themecss').attr('href','css/colorsB.css');
+    pokeToggle = false;
   });
   $('#greentheme').click(function(){
     $('#themecss').attr('href','css/colorsC.css');
+    pokeToggle = false;
   });
   $('#purpletheme').click(function(){
     $('#themecss').attr('href','css/colorsD.css');
+    pokeToggle = false;
+  });
+  $('#ducktheme').click(function(){
+    $('#themecss').attr('href','css/colorsE.css');
+    pokeToggle = false;
+  });
+  $('#poketheme').click(function(){
+    $('#themecss').attr('href','css/colorsF.css');
+    pokeToggle = true;
   });
     //Modals
   $('#settings').click(function(){
@@ -186,12 +198,14 @@ var gameOverToggle = gameOver; // set to "" when timer toggled off
 var fadeToggle = true; // set to false when timer toggled off
 var sizeToggle = true; // set to false when size toggled off
 var timerToggle = true; // set to false when size toggled off
+var pokeToggle; //determines whether pokemon images are swapped
 
 //FUNCTIONS
 
   // Repositions circle randomly on click
 function dotClick(){
   clearInterval(timer);
+  var position = $('#circle').position();
   var maxwidth = $('.background').width()-200;
   var maxheight = $('.background').height()-200;
   var newPosX = (Math.floor(Math.random() * maxwidth));
@@ -204,11 +218,14 @@ function dotClick(){
     width      : difficulty.size,
     height     : difficulty.size,
   });
+  if(pokeToggle){
+    setPokemon();
+  }
   fadeOut();
   clicks++;
   increaseDifficulty();
   setScore(difficulty.scrMult);
-  timer = setInterval(gameOver, difficulty.time);
+  timer = setInterval(gameOverToggle, difficulty.time);
 }
 
   // Sets circle to fade out in timer/600 (initally 3.33 seconds)
@@ -354,4 +371,50 @@ function toggleResize($this){
 function toggleTimeout($this){
   $this.toggleClass("active");
   timerToggle = !timerToggle;
+}
+
+function setPokemon(){
+  var randpoke = getPokemon();
+  $('.circle').css("background-image", "url(imgs/pokemon"+randpoke+".png), radial-gradient(ellipse farthest-corner at 45px 45px, rgba(50, 50, 50, 0.4) 0%, rgba(80, 80, 80, 0.0) )");
+}
+function getPokemon(){
+  var rand = Math.floor(Math.random() * 100);
+  switch(true){
+    case (rand==1):
+      return 0;
+      break;
+    case (rand>1 && rand<30):
+      return 8;
+      break;
+    case (rand>30 && rand<60):
+      return 9;
+      break;
+    case (rand>60 && rand<90):
+      return 10;
+      break;
+    case (rand==91 || rand==92):
+      return 6;
+      break;
+    case (rand==92 || rand==93):
+      return 3;
+      break;
+    case (rand==94 || rand==95):
+      return 2;
+      break;
+    case (rand==96):
+      return 7;
+      break;
+    case (rand==97):
+      return 5;
+      break;
+    case (rand==98):
+      return 4;
+      break;
+    case (rand==99):
+      return 1;
+      break;
+    default:
+      return 10;
+      break;
+  }
 }
