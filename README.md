@@ -14,7 +14,8 @@ Tuesday-Thursday: Add new game mode, get presentation ready
 - [x] Misclick not working
 
 ## Todo:
-- [ ] Add more themes, duckhunt, pokemon
+- [ ] Clean up code
+- [x] Add more themes, duckhunt, pokemon
 - [ ] static/linear toggle button?????
 - [x] fix gameOver, add modal on game over to show score and clicks then reset game (ajax?)
 - [x] Give instructions through modal then Ajax to refresh frame on gameover
