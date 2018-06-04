@@ -28,6 +28,7 @@ Tuesday-Thursday: Add new game mode, get presentation ready
 - [ ] Toggle button for "mania" untimed, unlimited amount of circles, test accuracy (limited amount of circles)
 ### Todo extra:
 - [x] Pre defined themes on drop down in menu
+    - [x] Check this for color blind
 - [ ] New game mode multiple circles: <br>
     Disable sliders other than size slider and button  <br>
     Add max circles slider  <br>

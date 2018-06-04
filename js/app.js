@@ -2,7 +2,7 @@
 //INITIALISE
 
 $(document).ready(function(){
-
+  $('#introModal').css('display', 'block');
   //Game
   $('#circle').on('click', function(){
     event.stopPropagation();
@@ -27,12 +27,18 @@ $(document).ready(function(){
   $('#purpletheme').click(function(){
     $('#themecss').attr('href','css/colorsD.css');
   });
-    //Settings modal
+    //Modals
   $('#settings').click(function(){
-    openMenu();
+    $('#settingsModal').css('display', 'block');
   });
   $('#settingsModal').click(function(){
     $('#settingsModal').css('display', 'none');
+  });
+  $('#introModal').click(function(){
+    $('#introModal').css('display', 'none');
+  });
+  $('#gameOverModal').click(function(){
+    $('#gameOverModal').css('display', 'none');
   });
   $('.innerModal').click(function(){
     event.stopPropagation();
@@ -73,12 +79,12 @@ $(document).ready(function(){
       //set sizeToggle
   $('#sizeBtn').click(function(){
     $(this).toggleClass("active");
-    if($('#sizeBtn').hasClass("active")){
-      sizeToggle = false;
-    }
-    else{
-      sizeToggle = true;
-    }
+    sizeToggle = !sizeToggle;
+  });
+      //set timerToggle
+  $('#fixTimeBtn').click(function(){
+    $(this).toggleClass("active");
+    timerToggle = !timerToggle;
   });
 
   //Sliders
@@ -96,8 +102,12 @@ $(document).ready(function(){
     //Set difficulty based on slider values
   $('#confirm').click(function(){
     setDifficulty(sizeSlider.value, timerSlider.value);
+    $('#circle').css({
+      height: sizeSlider.value,
+      width: sizeSlider.value,
+    })
+    $('#settingsModal').css('display', 'none');
   });
-
 });
 
 //VARIABLES
@@ -113,6 +123,7 @@ var difficulty = {
 var gameOverToggle = gameOver; // set to "" when timer toggled off
 var fadeToggle = true; // set to false when timer toggled off
 var sizeToggle = true; // set to false when size toggled off
+var timerToggle = true; // set to false when size toggled off
 
 //FUNCTIONS
 
@@ -153,9 +164,11 @@ function fadeOut(){
   // dependant on sizeToggle and timerToggle
 function increaseDifficulty(){
   if(sizeToggle){
-    difficulty.size = difficulty.size-0.5;
+    difficulty.size = difficulty.size-1;
   }
-  difficulty.time = difficulty.time-15;
+  if(timerToggle){
+    difficulty.time = difficulty.time-25;
+  }
   difficulty.scrMult = Math.floor(clicks/2);
 }
 
@@ -175,13 +188,23 @@ function setScore(x){
 
   //Triggered on timeout or background click
 function gameOver(){
-  alert("Game Over!");
-  location.reload();
-}
-
-  //Open settings modal on setting icon click
-function openMenu(){
-  $('#settingsModal').css('display', 'block');
+  clearInterval(timer);
+  var sizeSlider = document.getElementById('sizeSlider');
+  var timerSlider = document.getElementById('timerSlider');
+  $('#gameOverModal').css('display', 'block');
+  $('#goscore').html("Score: " + score +"<br>  Clicks: " + clicks);
+  $('#circle').css({
+    opacity    : '1',
+    left       : 0,
+    top        : 0,
+    width      : sizeSlider.value,
+    height     : sizeSlider.value,
+  });
+  score = 0;
+  clicks = 0;
+  setScore(0);
+  difficulty.time = timerSlider.value;
+  difficulty.size = sizeSlider.value;
 }
 
   // Sets sliders to predefined setDifficulty
