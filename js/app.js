@@ -17,26 +17,32 @@ $(document).ready(function(){
     //Themes
   $('#defaulttheme').click(function(){
     $('#themecss').attr('href','css/colorsA.css');
+    $('.circle').css("background-image", "url('')");
     pokeToggle = false;
   });
   $('#bluetheme').click(function(){
     $('#themecss').attr('href','css/colorsB.css');
+    $('.circle').css("background-image", "url('')");
     pokeToggle = false;
   });
   $('#greentheme').click(function(){
     $('#themecss').attr('href','css/colorsC.css');
+    $('.circle').css("background-image", "url('')");
     pokeToggle = false;
   });
   $('#purpletheme').click(function(){
     $('#themecss').attr('href','css/colorsD.css');
+    $('.circle').css("background-image", "url('')");
     pokeToggle = false;
   });
   $('#ducktheme').click(function(){
     $('#themecss').attr('href','css/colorsE.css');
+    $('.circle').css("background-image", "url('imgs/duck.png')");
     pokeToggle = false;
   });
   $('#poketheme').click(function(){
     $('#themecss').attr('href','css/colorsF.css');
+    $('.circle').css("background-image", "url('imgs/pokemon8.png')");
     pokeToggle = true;
   });
     //Modals
@@ -375,7 +381,7 @@ function toggleTimeout($this){
 
 function setPokemon(){
   var randpoke = getPokemon();
-  $('.circle').css("background-image", "url(imgs/pokemon"+randpoke+".png), radial-gradient(ellipse farthest-corner at 45px 45px, rgba(50, 50, 50, 0.4) 0%, rgba(80, 80, 80, 0.0) )");
+  $('.circle').css("background-image", "url(imgs/pokemon"+randpoke+".png), radial-gradient(ellipse farthest-corner at 45px 45px, rgba(50, 50, 50, 0.5) 0%, rgba(80, 80, 80, 0.0) )");
 }
 function getPokemon(){
   var rand = Math.floor(Math.random() * 100);
