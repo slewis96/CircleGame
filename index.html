@@ -80,9 +80,31 @@
         <button type="button" id="hard" class="diffBtns button" name="button">Hard</button>
       <!--Sliders-->
       <p>Initial circle size:</p>
-        <input type="range" min="10" max="150" value="100" class="slider" id="sizeSlider"><span id='sizeValue'></span><br><br>
+        <input type="range" min="10" max="150" value="100" class="slider" id="sizeSlider" list="sizeTicks"><span id='sizeValue'></span><br><br>
+        <!--available slider options-->
+        <datalist id="sizeTicks">
+          <option>0</option>
+          <option>50</option>
+          <option>75</option>
+          <option>100</option>
+          <option>150</option>
+        </datalist>
       <p>Initial timeout:</p>
-        <input type="range" min="500" max="3000" value="2000" class="slider" id="timerSlider"><span id='timerValue'></span><br>
+        <input type="range" min="500" max="3000" value="2000" class="slider" id="timerSlider" list="timerTicks"><span id='timerValue'></span><br>
+        <!--available slider options-->
+        <datalist id="timerTicks">
+          <option>500</option>
+          <option>750</option>
+          <option>1000</option>
+          <option>1250</option>
+          <option>1500</option>
+          <option>1750</option>
+          <option>2000</option>
+          <option>2250</option>
+          <option>2500</option>
+          <option>2750</option>
+          <option>3000</option>
+        </datalist>
         <button type="button" id="confirm" class="button" name="button">Confirm</button>
     </div>
   </div>
