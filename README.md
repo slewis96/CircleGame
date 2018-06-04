@@ -5,7 +5,7 @@ More successful clicks means a smaller target, a shorter time to click but also 
 ~~Friday~~: ~~swap over to div and add fadeOut~~<br>
 ~~Saturday~~: ~~add menu~~<br>
 ~~Sunday~~: ~~add theme (BONUS: fixed mobile)~~<br>
-Monday-Tuesday: ~~Fix mobile~~, Ajax refresh on gameOver, add instructions<br>
+~~Monday-Tuesday:~~ ~~Fix mobile~~, ~~Ajax refresh on gameOver, add instructions~~<br>
 Tuesday-Thursday: Add new game mode, get presentation ready
 
 ## Issues:
@@ -14,8 +14,8 @@ Tuesday-Thursday: Add new game mode, get presentation ready
 - [x] Misclick not working
 
 ## Todo:
-- [ ] fix gameOver, add modal on game over to show score and clicks then reset game (ajax?)
-- [ ] Give instructions through modal then Ajax to refresh frame on gameover
+- [x] fix gameOver, add modal on game over to show score and clicks then reset game (ajax?)
+- [x] Give instructions through modal then Ajax to refresh frame on gameover
 - [x] setInterval dot change (setInterval bottom of move func, clearInterval at top) if function with interval runs gameOver
 - [x] After x amount of clicks shrink circle, set interval time smaller, change score multiplyer
 - [x] fadeOut in sync with timeout
@@ -24,7 +24,7 @@ Tuesday-Thursday: Add new game mode, get presentation ready
     - [x] Toggle fadeout
     - [x] Sliders for initial interval time and width & height
     - [x] Difficulty buttons set sliders and submit at pre defined points
-    - [ ] ~~Modul with info on effect of menu items??~~ do this in instructions
+    - [x] ~~Modul with info on effect of menu items??~~ do this in instructions
 - [ ] Toggle button for "mania" untimed, unlimited amount of circles, test accuracy (limited amount of circles)
 ### Todo extra:
 - [x] Pre defined themes on drop down in menu

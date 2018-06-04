@@ -51,40 +51,102 @@ $(document).ready(function(){
       setTimeout(setDifficulty(sizeSlider.value, timerSlider.value), 2);
     });
   });
+    //Setting presets
+  $('#reactBtn').click(function(){
+    $(this).toggleClass("active");
+    $('#aimBtn').removeClass("active");
+    if($(this).hasClass("active")){
+      setSliders("react");
+      if($('#timeBtn').hasClass("active")){
+
+      } else { toggleTime($('#timeBtn')); }
+      if($('#missBtn').hasClass("active")){
+        toggleMiss($('#missBtn'));
+      } else { }
+      if($('#sizeBtn').hasClass("active")){
+        toggleResize($('#sizeBtn'));
+      } else { }
+      if($('#timeoutBtn').hasClass("active")){
+
+      } else { toggleTimeout($('#timeoutBtn')); }
+    } else {
+      //back to default
+      $('.diffBtns').each(function(){
+        if($(this).hasClass("active")){
+          setSliders($(this).attr('id'));
+        }
+      });
+      if($('#timeBtn').hasClass("active")){
+
+      } else { toggleTime($('#timeBtn')); }
+      if($('#missBtn').hasClass("active")){
+
+      } else { toggleMiss($('#missBtn')); }
+      if($('#sizeBtn').hasClass("active")){
+        toggleResize($('#sizeBtn'));
+      } else { }
+      if($('#timeoutBtn').hasClass("active")){
+        toggleTimeout($('#timeoutBtn'));
+      } else { }
+    }
+  });
+  $('#aimBtn').click(function(){
+    $(this).toggleClass("active");
+    $('#reactBtn').removeClass("active");
+    if($(this).hasClass("active")){
+      setSliders("aim");
+      if($('#timeBtn').hasClass("active")){
+
+      } else { toggleTime($('#timeBtn')); }
+      if($('#missBtn').hasClass("active")){
+
+      } else { toggleMiss($('#missBtn')); }
+      if($('#sizeBtn').hasClass("active")){
+        toggleResize($('#sizeBtn'));
+      } else { }
+      if($('#timeoutBtn').hasClass("active")){
+
+      } else { toggleTimeout($('#timeoutBtn')); }
+    } else {
+      $('.diffBtns').each(function(){
+        if($(this).hasClass("active")){
+          setSliders($(this).attr('id'));
+        }
+      });
+      if($('#timeBtn').hasClass("active")){
+
+      } else { toggleTime($('#timeBtn')); }
+      if($('#missBtn').hasClass("active")){
+
+      } else { toggleMiss($('#missBtn')); }
+      if($('#sizeBtn').hasClass("active")){
+        toggleResize($('#sizeBtn'));
+      } else { }
+      if($('#timeoutBtn').hasClass("active")){
+        toggleTimeout($('#timeoutBtn'));
+      } else { }
+    }
+  });
     //Toggle game attributes
       //set timeout and fade on/off
   $('#timeBtn').click(function(){
-    $(this).toggleClass("active");
-    if($('#timeBtn').hasClass("active")){
-      gameOverToggle = gameOver;
-    }
-    else{
-      gameOverToggle = " ";
-    }
-    fadeToggle = !fadeToggle;
+    var $this = $(this);
+    toggleTime($this);
   });
       //set background click on/off
   $('#missBtn').click(function(){
-    $(this).toggleClass("active");
-    if($('#missBtn').hasClass("active")){
-      $('.background').click(function(){
-        event.stopPropagation();
-        gameOver();
-      });
-    }
-    else{
-      $('.background').unbind();
-    }
+    var $this = $(this);
+    toggleMiss($this);
   });
       //set sizeToggle
   $('#sizeBtn').click(function(){
-    $(this).toggleClass("active");
-    sizeToggle = !sizeToggle;
+    var $this = $(this);
+    toggleResize($this);
   });
       //set timerToggle
-  $('#fixTimeBtn').click(function(){
-    $(this).toggleClass("active");
-    timerToggle = !timerToggle;
+  $('#timeoutBtn').click(function(){
+    var $this = $(this);
+    toggleTimeout($this);
   });
 
   //Sliders
@@ -167,7 +229,7 @@ function increaseDifficulty(){
     difficulty.size = difficulty.size-1;
   }
   if(timerToggle){
-    difficulty.time = difficulty.time-25;
+    difficulty.time = difficulty.time-20;
   }
   difficulty.scrMult = Math.floor(clicks/2);
 }
@@ -231,5 +293,65 @@ function setSliders(diff){
       $('#sizeValue').html(sizeSlider.value);
       $('#timerValue').html(timerSlider.value);
       break;
+    case "react":
+      sizeSlider.value = 125;
+      timerSlider.value = 750;
+      $('#sizeValue').html(sizeSlider.value);
+      $('#timerValue').html(timerSlider.value);
+      break;
+    case "aim":
+      sizeSlider.value = 75;
+      timerSlider.value = 1500;
+      $('#sizeValue').html(sizeSlider.value);
+      $('#timerValue').html(timerSlider.value);
+      break;
+    default:
+      sizeSlider.value = 100;
+      timerSlider.value = 2000;
+      $('#sizeValue').html(sizeSlider.value);
+      $('#timerValue').html(timerSlider.value);
+      break;
   }
+}
+
+  // Sets whether the game ends on miss
+  // $this : the button pressed to activate
+function toggleMiss($this){
+  $this.toggleClass("active");
+  if($('#missBtn').hasClass("active")){
+    $('.background').click(function(){
+      event.stopPropagation();
+      gameOver();
+    });
+  }
+  else{
+    $('.background').unbind();
+  }
+}
+
+  // Sets whether the game ends on timeout
+  // $this : the button pressed to activate
+function toggleTime($this){
+  $this.toggleClass("active");
+  if($('#timeBtn').hasClass("active")){
+    gameOverToggle = gameOver;
+  }
+  else{
+    gameOverToggle = " ";
+  }
+  fadeToggle = !fadeToggle;
+}
+
+  // Sets whether the circle resizes
+  // $this : the button pressed to activate
+function toggleResize($this){
+  $this.toggleClass("active");
+  sizeToggle = !sizeToggle;
+}
+
+  // Sets whether the timer lowers
+  // $this : the button pressed to activate
+function toggleTimeout($this){
+  $this.toggleClass("active");
+  timerToggle = !timerToggle;
 }
