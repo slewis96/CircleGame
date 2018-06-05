@@ -257,6 +257,9 @@ i {
   #timerValue{
     font-size: 10px;
   }
+  #introModal {
+    padding-top: 25px;
+  }
   #introModal ul{
     font-size: 14px;
     padding-left: 8%;
