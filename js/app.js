@@ -410,42 +410,77 @@ function setSliders(diff){
       timerSlider.value = 3000;
       $('#sizeValue').html(sizeSlider.value);
       $('#timerValue').html(timerSlider.value);
+      $('#circle').css({
+        height: sizeSlider.value,
+        width: sizeSlider.value,
+      })
+      setDifficulty(sizeSlider.value, timerSlider.value);
       break;
     case "medium":
       sizeSlider.value = 100;
       timerSlider.value = 2000;
       $('#sizeValue').html(sizeSlider.value);
       $('#timerValue').html(timerSlider.value);
+      $('#circle').css({
+        height: sizeSlider.value,
+        width: sizeSlider.value,
+      })
+      setDifficulty(sizeSlider.value, timerSlider.value);
       break;
     case "hard":
       sizeSlider.value = 50;
       timerSlider.value = 1000;
       $('#sizeValue').html(sizeSlider.value);
       $('#timerValue').html(timerSlider.value);
+      $('#circle').css({
+        height: sizeSlider.value,
+        width: sizeSlider.value,
+      })
+      setDifficulty(sizeSlider.value, timerSlider.value);
       break;
     case "react":
       sizeSlider.value = 125;
       timerSlider.value = 750;
       $('#sizeValue').html(sizeSlider.value);
       $('#timerValue').html(timerSlider.value);
+      $('#circle').css({
+        height: sizeSlider.value,
+        width: sizeSlider.value,
+      })
+      setDifficulty(sizeSlider.value, timerSlider.value);
       break;
     case "aim":
       sizeSlider.value = 75;
       timerSlider.value = 1500;
       $('#sizeValue').html(sizeSlider.value);
       $('#timerValue').html(timerSlider.value);
+      $('#circle').css({
+        height: sizeSlider.value,
+        width: sizeSlider.value,
+      })
+      setDifficulty(sizeSlider.value, timerSlider.value);
       break;
     case "juggle":
       sizeSlider.value = 125;
       timerSlider.value = 2500;
       $('#sizeValue').html(sizeSlider.value);
       $('#timerValue').html(timerSlider.value);
+      $('#circle').css({
+        height: sizeSlider.value,
+        width: sizeSlider.value,
+      })
+      setDifficulty(sizeSlider.value, timerSlider.value);
       break;
     default:
       sizeSlider.value = 100;
       timerSlider.value = 2000;
       $('#sizeValue').html(sizeSlider.value);
       $('#timerValue').html(timerSlider.value);
+      $('#circle').css({
+        height: sizeSlider.value,
+        width: sizeSlider.value,
+      })
+      setDifficulty(sizeSlider.value, timerSlider.value);
       break;
   }
 }
@@ -473,25 +508,21 @@ function resetSettings(){
 
   //sets settings ready for juggle mode and resets them on off toggle
 function setJuggleSettings(){
-  $(this).toggleClass("active");
   $('#reactBtn').removeClass("active");
   $('#aimBtn').removeClass("active");
-  if($(this).hasClass("active")){
+  if($("#juggleBtn").hasClass("active")){
+    resetSettings();
     setSliders("juggle");
-    if(!($('#timeBtn').hasClass("active"))){ //on
-      toggleTime($('#timeBtn'));
-    }
-    if(!($('#missBtn').hasClass("active"))){ //on
-      toggleMiss($('#missBtn'));
-    }
-    if($('#sizeBtn').hasClass("active")){ //off
-      toggleResize($('#sizeBtn'));
-    }
-    if(!($('#timeoutBtn').hasClass("active"))){ //on
-      toggleTimeout($('#timeoutBtn'));
-    }
+    $.each($("#settingsModal button"), function(){
+      $(this).prop('disabled', true);
+    });
+    $("#sizeSlider").prop('disabled', true);
+    $("#sizeSlider").prop('disabled', true);
+    $("#juggleBtn").prop('disabled', false);
   } else {
-    //back to default
+    $.each($("#settingsModal button"), function(){
+      $(this).prop('disabled', false);
+    });
     resetSettings();
   }
 }

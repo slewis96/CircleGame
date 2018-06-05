@@ -225,6 +225,9 @@ i {
   margin: 4px 2px 0px 2px;
   cursor: pointer;
 }
+.button:disabled{
+  background-color: #626262;
+}
 .button:hover{
   background-color: #a70505;
 }
