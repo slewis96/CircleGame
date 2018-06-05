@@ -1,15 +1,15 @@
 
-//INITIALISE
+          //INITIALISE
 
 $(document).ready(function(){
   $('#introModal').css('display', 'block');
   //Game
   $('#circle').on('click', function(){
     event.stopPropagation();
-    dotClick();
+    var $this = $(this);
+    dotClick($this);
   })
   $('.background').click(function(){
-    event.stopPropagation();
     gameOver();
   })
 
@@ -34,13 +34,11 @@ $(document).ready(function(){
     event.stopPropagation();
   });
 
-  $.each($('.diffBtns'), function(){
-    $(this).click(function(){
-      $('.diffBtns').removeClass('active');
-      $(this).addClass('active');
-      setSliders($(this).attr('id'));
-      setTimeout(setDifficulty(sizeSlider.value, timerSlider.value), 2);
-    });
+    //Game mode
+  $('#juggleBtn').click(function(){
+    $(this).toggleClass("active");
+    setJuggleSettings();
+    juggleToggle=!juggleToggle;
   });
 
     //Setting presets
@@ -111,6 +109,16 @@ $(document).ready(function(){
     toggleTimeout($this);
   });
 
+  //Difficulty buttons
+  $.each($('.diffBtns'), function(){
+    $(this).click(function(){
+      $('.diffBtns').removeClass('active');
+      $(this).addClass('active');
+      setSliders($(this).attr('id'));
+      setTimeout(setDifficulty(sizeSlider.value, timerSlider.value), 2);
+    });
+  });
+
   //Sliders
   var sizeSlider = document.getElementById('sizeSlider');
   var timerSlider = document.getElementById('timerSlider');
@@ -136,7 +144,7 @@ $(document).ready(function(){
   });
 });
 
-//VARIABLES
+          //VARIABLES
 
 var clicks = 0; // incremented every circle click
 var score = 0; // 2/clicks added each circle click
@@ -151,19 +159,22 @@ var fadeToggle = true; // set to false when timer toggled off
 var sizeToggle = true; // set to false when size toggled off
 var timerToggle = true; // set to false when size toggled off
 var pokeToggle; //determines whether pokemon images are swapped
+var juggleToggle;
+var circleSpawnTime = 0;
 
-//FUNCTIONS
+          //FUNCTIONS
 
-//Game
+//GAME
   // Repositions circle randomly on click
-function dotClick(){
+function dotClick($this){
   clearInterval(timer);
-  var position = $('#circle').position();
+  if(juggleToggle){addCircle()}
+  var position = $this.position();
   var maxwidth = $('.background').width()-200;
   var maxheight = $('.background').height()-200;
   var newPosX = (Math.floor(Math.random() * maxwidth));
   var newPosY = (Math.floor(Math.random() * maxheight));
-  $('#circle').css({
+  $this.css({
     transition : "opacity 0s",
     opacity    : '1',
     left       : newPosX,
@@ -172,7 +183,7 @@ function dotClick(){
     height     : difficulty.size,
   });
   if(pokeToggle){setPokemon();}
-  fadeOut();
+  fadeOut($this);
   clicks++;
   increaseDifficulty();
   setScore(difficulty.scrMult);
@@ -180,10 +191,10 @@ function dotClick(){
 }
 
   // Sets circle to fade out in timer/600 (initally 3.33 seconds)
-function fadeOut(){
+function fadeOut($this){
   if(fadeToggle){
     var transtime = 'opacity '+(difficulty.time/600)+'s';
-    $('#circle').css({
+    $this.css({
       transition : transtime,
       opacity    : 0
     });
@@ -232,6 +243,7 @@ function gameOver(){
   });
   score = 0;
   clicks = 0;
+  circleSpawnTime = 0;
   setScore(0);
   difficulty.time = timerSlider.value;
   difficulty.size = sizeSlider.value;
@@ -286,8 +298,36 @@ function getPokemon(){
   }
 }
 
+  //Adds circle on screen after 10 seconds from first dotClick
+  //adds the next circle 10+10 seconds later and the next 20+10 later etc.
+function addCircle(){
+  var circleNum = $(".background").children().length + 1;
+  $(".background").append("<div id='circle"+circleNum+"' class='circle'></div>");
+  var $this;
+  $('#circle'+circleNum).on('click', function(){
+    event.stopPropagation();
+    $this = $(this);
+    dotClick($this);
+  });
+  var maxwidth = $('.background').width()-200;
+  var maxheight = $('.background').height()-200;
+  var newPosX = (Math.floor(Math.random() * maxwidth));
+  var newPosY = (Math.floor(Math.random() * maxheight));
+  $('#circle'+circleNum).css({
+    transition : "opacity 0s",
+    opacity    : '1',
+    left       : newPosX,
+    top        : newPosY,
+    width      : difficulty.size,
+    height     : difficulty.size,
+  });
+  fadeOut($('#circle'+circleNum));
+  circleSpawnTime += 10000;
+  juggleToggle=!juggleToggle;
+  setTimeout(function(){juggleToggle=!juggleToggle;}, circleSpawnTime);
+}
 
-//Events
+//EVENTS
   //Sets themes CSS to theme based on dropdown-content buttons
 function setThemeEvents(){
   $('.circle').css("background-image", "url('')");
@@ -395,6 +435,12 @@ function setSliders(diff){
       $('#sizeValue').html(sizeSlider.value);
       $('#timerValue').html(timerSlider.value);
       break;
+    case "juggle":
+      sizeSlider.value = 125;
+      timerSlider.value = 2500;
+      $('#sizeValue').html(sizeSlider.value);
+      $('#timerValue').html(timerSlider.value);
+      break;
     default:
       sizeSlider.value = 100;
       timerSlider.value = 2000;
@@ -404,6 +450,7 @@ function setSliders(diff){
   }
 }
 
+  //resets the settings to default used on presets and gamemode
 function resetSettings(){
   $('.diffBtns').each(function(){
     if($(this).hasClass("active")){
@@ -421,5 +468,30 @@ function resetSettings(){
   }
   if($('#timeoutBtn').hasClass("active")){ //if on turn off
     toggleTimeout($('#timeoutBtn'));
+  }
+}
+
+  //sets settings ready for juggle mode and resets them on off toggle
+function setJuggleSettings(){
+  $(this).toggleClass("active");
+  $('#reactBtn').removeClass("active");
+  $('#aimBtn').removeClass("active");
+  if($(this).hasClass("active")){
+    setSliders("juggle");
+    if(!($('#timeBtn').hasClass("active"))){ //on
+      toggleTime($('#timeBtn'));
+    }
+    if(!($('#missBtn').hasClass("active"))){ //on
+      toggleMiss($('#missBtn'));
+    }
+    if($('#sizeBtn').hasClass("active")){ //off
+      toggleResize($('#sizeBtn'));
+    }
+    if(!($('#timeoutBtn').hasClass("active"))){ //on
+      toggleTimeout($('#timeoutBtn'));
+    }
+  } else {
+    //back to default
+    resetSettings();
   }
 }
