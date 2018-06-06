@@ -153,8 +153,9 @@ $(document).ready(function(){
 
           //VARIABLES
 
-var clicks = 0; // incremented every circle click
+var clicks = 0; // Incremented every circle click
 var score = 0; // 2/clicks added each circle click
+var highscore = 0; // replaced by highest score
 var misses = 0; // Amount of times missed only incremented if missBtn toggle off
 var timer; // Time available to click circle before gameOver
 var difficulty = {
@@ -246,8 +247,17 @@ function setScore(x){
   $('#score').html("Score: " + score +",  Clicks: " + clicks);
 }
 
+  // Set onscreen highscore
+function setHighScore(){
+  if(score>highscore){
+    highscore = score;
+    $('#highscore').html("Highscore: " + highscore);
+  }
+}
+
   //Triggered on background click or timeout
 function gameOver(){
+  setHighScore();
   clearInterval(timer);
   var sizeSlider = document.getElementById('sizeSlider');
   var timerSlider = document.getElementById('timerSlider');
@@ -274,6 +284,7 @@ function gameOver(){
 }
   //Triggered on gameOver in juggle game mode
 function gameOverJuggle(){
+  setHighScore();
   clearInterval(timer);
   var sizeSlider = document.getElementById('sizeSlider');
   var timerSlider = document.getElementById('timerSlider');
