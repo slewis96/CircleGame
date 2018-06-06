@@ -193,6 +193,9 @@ i {
 .slider:hover {
   opacity: 1;
 }
+.slider:disabled{
+  opacity: 0.2;
+}
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -226,6 +229,9 @@ i {
   cursor: pointer;
 }
 .button:disabled{
+  background-color: #626262;
+}
+.button:disabled:hover{
   background-color: #626262;
 }
 .button:hover{

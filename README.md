@@ -9,12 +9,13 @@ More successful clicks means a smaller target, a shorter time to click but also 
 Tuesday-Thursday: Add new game mode, get presentation ready
 
 ## Issues:
-- [ ] No score for Juggle mode
+- [x] No score for Juggle mode
 - [x] To small on mobile
 - [x] Circle goes off screen
 - [x] Misclick not working
 
 ## Todo:
+- [x] Show misses when miss gameover not on
 - [x] Clean up code
 - [x] Add more themes, duckhunt, pokemon
 - [x] fix gameOver, add modal on game over to show score and clicks then reset game (ajax?)
@@ -33,7 +34,7 @@ Tuesday-Thursday: Add new game mode, get presentation ready
 - [x] Pre defined themes on drop down in menu
     - [x] Check this for color blind
 - [x] New game mode multiple circles
-- [ ] static/linear toggle button?????
+- [ ] Static/linear toggle button?????
 
 ### Notes:
 ![Image of phone notes](Notes/phonenotes.png)
