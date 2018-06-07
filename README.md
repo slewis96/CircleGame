@@ -45,7 +45,7 @@ To play the game locally download all the files and simply open index.html in yo
 <br>
 <br>
 ___
-# <span style="color:#c20000;font-family: 'PT Sans', sans-serif;">Devlopment:</span>
+#Devlopment:
 
 ~~Friday~~: ~~swap over to div and add fadeOut~~<br>
 ~~Saturday~~: ~~add menu~~<br>
