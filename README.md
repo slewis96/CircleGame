@@ -3,7 +3,7 @@
 ---
 Click on the circle as soon as it appears miss then **gameover** don't click in time then **gameover**
 More successful clicks means a smaller target, a shorter time to click but also an increased score<br>
-
+![Image of phone notes](Notes/gameSS0.png)
 
 <span style="color:#c20000;font-family: 'PT Sans', sans-serif;">How to play:</span>
 ---
@@ -13,9 +13,16 @@ To play the game locally download all the files and simply open index.html in yo
 
 <span style="color:#c20000;font-family: 'PT Sans', sans-serif;">Settings</span>
 ---
+![Image of phone notes](Notes/settingsSS.png)
 <ul>
 <li><b>Juggle: </b><br>
   <sub>More than one circle, you're scored on the most circles you manage to keep on screen at once</sub>
+</li>
+<li>Reactions: <br>
+  <sub>Larger circle, less time to click, no game over on miss</sub>
+</li>
+<li>Accuracy: <br>
+  <sub>Smaller circle, more time to click, timer fixed</sub>
 </li>
 <li>Time Out:<br>
   <sub>Turns the timer on/off</sub>
@@ -28,6 +35,9 @@ To play the game locally download all the files and simply open index.html in yo
 </li>
 <li>Fix timer:<br>
   <sub>Toggles the timer lowering on clicks</sub>
+</li>
+<li>Difficulty buttons (easy, medium, hard):<br>
+  <sub>These difficulties buttons set the sliders</sub>
 </li>
 </ul>
 <br>
