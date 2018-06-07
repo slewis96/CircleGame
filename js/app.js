@@ -587,6 +587,7 @@ function setJuggleSettings(){
     $.each($("#settingsModal button"), function(){
       $(this).prop('disabled', true);
     });
+    $("#sizeBtn").prop('disabled', false);
     $("#sizeSlider").prop('disabled', true);
     $("#timerSlider").prop('disabled', true);
     $("#confirm").prop('disabled', false);
@@ -608,6 +609,9 @@ function setJuggleSettings(){
     $('.background').click(function(){
       gameOver();
     });
+    if($('#sizeBtn').hasClass("active")){ //if on turn off
+      toggleResize($('#sizeBtn'));
+    }
     clearInterval(circleTimer);
     juggleToggle=false;
     resetSettings();
