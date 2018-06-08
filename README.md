@@ -52,6 +52,7 @@ Mobile users:
   <sub>These difficulties buttons set the sliders</sub>
 </li>
 </ul>
+
 <span style="color:#c20000;font-family: 'PT Sans', sans-serif;">Development Experience</span>
 ---
 I enjoyed implementing this project and I am happy with the way I tackled the implementation. I tried to implement the basic game in a way where it would be simple to add the features after; although I did this fairly successfully when it came to implementing the new game mode I ran into some issues with the way the game was implemented. As I was having problems with adding the new game mode how I had originally intended I decided to change my intentions for the game mode; I swapped the name of the game mode from mania to juggle and scored the player on different criteria.  
@@ -69,6 +70,7 @@ Other than this game mode wall I hit during development everything else went pre
 <br>
 <hr>
 <br>
+
 # Devlopment:
 
 ~~Friday~~: ~~swap over to div and add fadeOut~~<br>
