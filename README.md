@@ -1,15 +1,16 @@
 # ![Image of phone notes](imgs/icon.ico)<span style="color:#c20000; letter-spacing: 5px;font-family: 'PT Sans', sans-serif;">Circle Game</span>
-<span style="color:#c20000;font-family: 'PT Sans', sans-serif;">Summary</span>
----
-Click on the circle as soon as it appears miss then **gameover** don't click in time then **gameover**
-More successful clicks means a smaller target, a shorter time to click but also an increased score<br>
-![Image of phone notes](Notes/gameSS0.png)
 
 <span style="color:#c20000;font-family: 'PT Sans', sans-serif;">How to play:</span>
 ---
 To play the game online visit: https://slewis96.github.io/Circlegame/
 
 To play the game locally download all the files and simply open index.html in your desired browser
+
+<span style="color:#c20000;font-family: 'PT Sans', sans-serif;">Summary</span>
+---
+Click on the circle as soon as it appears miss then **gameover** don't click in time then **gameover**
+More successful clicks means a smaller target, a shorter time to click but also an increased score<br>
+![Image of phone notes](Notes/gameSS0.png)
 
 <span style="color:#c20000;font-family: 'PT Sans', sans-serif;">Recommendations</span>
 ---
