@@ -56,6 +56,7 @@ Mobile users:
 <span style="color:#c20000;font-family: 'PT Sans', sans-serif;">Development Experience</span>
 ---
 I enjoyed implementing this project and I am happy with the way I tackled the implementation. I tried to implement the basic game in a way where it would be simple to add the features after; although I did this fairly successfully when it came to implementing the new game mode I ran into some issues with the way the game was implemented. As I was having problems with adding the new game mode how I had originally intended I decided to change my intentions for the game mode; I swapped the name of the game mode from mania to juggle and scored the player on different criteria.  
+
 Other than this game mode wall I hit during development everything else went pretty smoothly due to planning everything about the game (including how to implement it) in my head and then jotting down my ideas as notes. Having a good idea of how to go about things meant when I started implementation I knew exactly what I was doing. In the future I will be ensuring I think further about any stretch goals (like the new gamemode) before defining how I will be implementing the initial the project as to account for additions I will make on a later date.
 
 <span style="color:#c20000;font-family: 'PT Sans', sans-serif;">Future improvements</span>
